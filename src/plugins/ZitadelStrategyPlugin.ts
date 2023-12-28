@@ -68,7 +68,11 @@ export const ZitadelStrategyPlugin = async (
         {
           name: ZitadelStrategy.name,
           strategy: (ctx) => {
-            return new ZitadelStrategy(ctx, "users");
+            return new ZitadelStrategy(
+              ctx,
+              "users",
+              pluginConfig.fieldsMappings
+            );
           },
         },
       ],

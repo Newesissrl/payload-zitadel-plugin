@@ -1,6 +1,7 @@
 export declare type ZitadelStrategyPluginConfig = {
   ui: UIPluginConfig;
   auth: AuthPluginConfig;
+  fieldsMappings: FieldMapping[];
 };
 
 export type AuthPluginConfig = {
@@ -27,4 +28,9 @@ export declare type ZitadelProviderConfig = {
 export declare type PKCE = {
   code_verifier: string;
   code_challenge: string;
+};
+
+export declare type FieldMapping = {
+  from: string;
+  to: string;
 };
