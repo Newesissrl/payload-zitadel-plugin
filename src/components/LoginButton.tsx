@@ -1,8 +1,8 @@
 import React from "react";
-import { LoginButtonProps } from "../types";
+import { LoginButtonProps } from "./types";
 import { useTranslation } from "react-i18next";
 
-export const LoginButton = (props?: LoginButtonProps) => {
+const LoginButton = (props?: LoginButtonProps) => {
   return () => {
     const { t } = useTranslation("zitadel");
     const {
@@ -31,3 +31,4 @@ export const LoginButton = (props?: LoginButtonProps) => {
     );
   };
 };
+export default LoginButton;

@@ -1,2 +1,1 @@
-export * from "./LoginButton";
-export * from "./PictureField";
+export { default as LoginButton } from "./LoginButton";

@@ -27,16 +27,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
-        use: "ts-loader",
         exclude: /node_modules/,
-      },
-      {
-        test: /\.tsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        test: /\.(t|j)sx?$/,
+        use: [
+          {
+            loader: require.resolve("swc-loader"),
+          },
+        ],
       },
       {
         oneOf: [
