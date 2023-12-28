@@ -6,21 +6,14 @@ const generateComponentConfigForProviders = async (
   pluginConfig: ZitadelStrategyPluginConfig
 ) => {
   const pkce = await generateCodeChallenge();
-  const {
-    PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT,
-    PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI,
-    PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID,
-    PAYLOAD_PUBLIC_ZITADEL_SCOPES,
-  } = process.env;
-  return pluginConfig.LoginButton({
-    loginButtonLabel: pluginConfig.loginButtonLabel,
+  const { authorizeEndpoint, redirectUri, clientID, scope } = pluginConfig.auth;
+  return pluginConfig.ui.LoginButton({
+    loginButtonLabel: pluginConfig.ui.loginButtonLabel,
     codeChallenge: pkce.code_challenge,
-    authorizeEndpoint: PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT,
-    redirectUri: PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI,
-    clientID: PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID,
-    scope:
-      PAYLOAD_PUBLIC_ZITADEL_SCOPES ||
-      "openid email profile urn:zitadel:iam:user:metadata",
+    authorizeEndpoint,
+    redirectUri,
+    clientID,
+    scope: scope || "openid email profile urn:zitadel:iam:user:metadata",
     codeChallengeMethod: "S256",
     state: btoa(
       JSON.stringify({
@@ -38,14 +31,21 @@ export const ZitadelStrategyPlugin = async (
     if (!collectionWithAuth) {
       return incomingConfig;
     }
-    if (!pluginConfig?.LoginButton) {
+    if (
+      !(pluginConfig.ui && pluginConfig.auth && pluginConfig?.ui.LoginButton)
+    ) {
       return incomingConfig;
     }
-    pluginConfig.loginButtonLabel =
-      pluginConfig.loginButtonLabel ||
-      process.env.PAYLOAD_PUBLIC_ZITADEL_LOGIN_BUTTON_LABEL ||
-      DEFAULT_LOGIN_BUTTON_LABEL;
-    const componentPlacement = pluginConfig.beforeOrAfterLogin || "after";
+    pluginConfig = {
+      ...pluginConfig,
+      ui: {
+        ...pluginConfig.ui,
+        loginButtonLabel:
+          pluginConfig.ui.loginButtonLabel || DEFAULT_LOGIN_BUTTON_LABEL,
+      },
+    };
+
+    const componentPlacement = pluginConfig.ui.beforeOrAfterLogin || "after";
     const componentsType = `${componentPlacement}Login`;
     const baseLoginComponents =
       (incomingConfig.admin?.components || {})[componentsType] || [];
