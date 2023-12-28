@@ -50,7 +50,15 @@ const buildConfigAsync = async () => {
         authorizeEndpoint: process.env.PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT,
         clientID: process.env.PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID,
         redirectUri: process.env.PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI,
-      }
+      },
+      fieldsMappings: [] // useful to remap fields from idP to the desired `required` fields
+      /*
+      [{
+        from: "name",
+        to: "first_name"
+      },
+      ...]
+      */
     });
     return buildConfig({
       .....
