@@ -66,7 +66,7 @@ module.exports = {
             ],
           },
           {
-            exclude: [/\.(ts|tsx)$/, /\.html$/, /\.json$/],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
             loader: require.resolve("file-loader"),
             options: {
               emitFile: false,
@@ -77,7 +77,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx"],
+    extensions: [".ts", ".tsx", ".js"],
     modules: ["node_modules"],
   },
   plugins: [new MiniCSSExtractPlugin({})],
