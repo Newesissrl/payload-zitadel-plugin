@@ -78,7 +78,7 @@ export class ZitadelStrategy extends Strategy {
   async authenticate(req: Request): Promise<any> {
     const { PAYLOAD_PUBLIC_ZITADEL_USER_INFO } = process.env;
     if (!PAYLOAD_PUBLIC_ZITADEL_USER_INFO) {
-      this.logger.info("No 'ZITADEL_USER_INFO' key set");
+      this.logger.info("No 'PAYLOAD_PUBLIC_ZITADEL_USER_INFO' key set");
       this.success(null);
       return;
     }

@@ -1,7 +1,9 @@
 import { Express, Request, Response } from "express";
 
 export const ZitadelRoutes = (app: Express) => {
-  const zitadelRedirectURL = new URL(process.env.ZITADEL_REDIRECT_URI);
+  const zitadelRedirectURL = new URL(
+    process.env.PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI
+  );
   app.get(zitadelRedirectURL.pathname, async (req: Request, res: Response) => {
     const { code, state } = req.query;
     if (!state) {
@@ -14,7 +16,7 @@ export const ZitadelRoutes = (app: Express) => {
       grant_type: "authorization_code",
       code: code.toString(),
       redirect_uri: zitadelRedirectURL.toString(),
-      client_id: process.env.ZITADEL_CLIENT_ID,
+      client_id: process.env.PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID,
       code_verifier: stateJson.codeVerifier,
     };
     const formBody = [];
@@ -23,13 +25,16 @@ export const ZitadelRoutes = (app: Express) => {
       var encodedValue = encodeURIComponent(data[property]);
       formBody.push(encodedKey + "=" + encodedValue);
     }
-    const response = await fetch(process.env.ZITADEL_TOKEN_ENDPOINT, {
-      method: "POST",
-      body: formBody.join("&"),
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    });
+    const response = await fetch(
+      process.env.PAYLOAD_PUBLIC_ZITADEL_TOKEN_ENDPOINT,
+      {
+        method: "POST",
+        body: formBody.join("&"),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
     const json = await response.json();
     if (json.error) {
       res
@@ -41,7 +46,7 @@ export const ZitadelRoutes = (app: Express) => {
       maxAge: +json.expires_in * 1000,
       sameSite: "none",
       secure: true,
-      domain: process.env.COOKIE_DOMAIN,
+      domain: process.env.PAYLOAD_PUBLIC_COOKIE_DOMAIN,
     });
     res.redirect("/");
   });

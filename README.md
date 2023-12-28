@@ -14,21 +14,22 @@ Extends `payloadcms` with [Zitadel](https://www.zitadel.com) integration
 ### server.ts
 ```js
 const cookieParser = require("cookie-parser");
+import { ZitadelRoutes } from "@newesissrl/payload-zitadel-plugin/dist/routes";
 ....
 app.use(cookieParser());
+....
+await payload.init(....);
+ZitadelRoutes(app);
+....
 ```
 
-### PAYLOAD_PUBLIC mandatory env variable
+### PAYLOAD_PUBLIC env variables
 
 ```sh
 PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI=http://localhost:3030/zitadel/redirect
-```
-
-### PAYLOAD_PUBLIC suggested env variables
-
-```sh
-PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT=http://localhost:8080/oauth/v2/authorize
+PAYLOAD_PUBLIC_ZITADEL_TOKEN_ENDPOINT=http://localhost:8080/oauth/v2/token
 PAYLOAD_PUBLIC_ZITADEL_USER_INFO=http://localhost:8080/oidc/v1/userinfo
+PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT=http://localhost:8080/oauth/v2/authorize
 PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID= #the one you get from Zitadel app
 ```
 
