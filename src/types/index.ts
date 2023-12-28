@@ -3,6 +3,7 @@ import { User } from "payload/auth";
 export declare type ZitadelStrategyPluginConfig = {
   loginButtonLabel?: string;
   beforeOrAfterLogin?: beforeOrAfterLoginType;
+  LoginButton: any;
 };
 
 export declare type beforeOrAfterLoginType = "before" | "after";

@@ -1,6 +1,5 @@
 import { Config } from "payload/config";
 import { ZitadelStrategyPluginConfig } from "../types";
-import * as cmp from "../components/LoginButton";
 import { generateCodeChallenge } from "../utils/pcke";
 import { ZitadelStrategy } from "../strategies";
 const generateComponentConfigForProviders = async (
@@ -13,7 +12,7 @@ const generateComponentConfigForProviders = async (
     PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID,
     PAYLOAD_PUBLIC_ZITADEL_SCOPES,
   } = process.env;
-  return cmp.LoginButton({
+  return pluginConfig.LoginButton({
     loginButtonLabel: pluginConfig.loginButtonLabel,
     codeChallenge: pkce.code_challenge,
     authorizeEndpoint: PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT,
@@ -39,7 +38,9 @@ export const ZitadelStrategyPlugin = async (
     if (!collectionWithAuth) {
       return incomingConfig;
     }
-
+    if (!pluginConfig?.LoginButton) {
+      return incomingConfig;
+    }
     pluginConfig.loginButtonLabel =
       pluginConfig.loginButtonLabel ||
       process.env.PAYLOAD_PUBLIC_ZITADEL_LOGIN_BUTTON_LABEL ||

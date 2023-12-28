@@ -32,16 +32,32 @@ app.use(cookieParser());
 
 ```js
 import { ZitadelStrategyPlugin } from "@newesissrl/payload-zitadel-plugin/dist/plugins";
+import { LoginButton } from "@newesissrl/payload-zitadel-plugin/dist/components/LoginButton";
 
 const buildConfigAsync = async () => {
     const zitadelPlugin = await ZitadelStrategyPlugin({
       beforeOrAfterLogin? // where to place the button (before|after, default = "after")
       loginButtonLabel? // the label to use for the login button (default = "login-with-zitadel")
+      LoginButton: LoginButton // the component to use for the login button
     });
     return buildConfig({
       .....
       plugins: [...., zitadelPlugin],
     })
 }
+```
 
+## Notes
+
+If you want to override the `LoginButton` component, your React component must accept those properties:
+
+```js
+loginButtonLabel,
+codeChallenge,
+authorizeEndpoint,
+redirectUri,
+clientID,
+scope,
+codeChallengeMethod,
+state
 ```
