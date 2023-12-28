@@ -1,5 +1,5 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/strategies", "src/index.ts", "src/plugins"],
+  "include": ["src/strategies", "src/index.ts"],
   "exclude": ["src/components", "**/*.spec.js"]
 }

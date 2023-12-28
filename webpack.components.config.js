@@ -27,7 +27,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.tsx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -61,7 +66,7 @@ module.exports = {
             ],
           },
           {
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
+            exclude: [/\.(ts|tsx)$/, /\.html$/, /\.json$/],
             loader: require.resolve("file-loader"),
             options: {
               emitFile: false,
@@ -72,7 +77,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: [".ts", ".tsx"],
     modules: ["node_modules"],
   },
   plugins: [new MiniCSSExtractPlugin({})],
