@@ -16,7 +16,7 @@ describe("ZitadelStrategy", () => {
     strategy = new ZitadelStrategy(payload, "test-slug");
     ZitadelStrategy.prototype.success = () => {};
     ZitadelStrategy.prototype.error = () => {};
-    process.env.ZITADEL_USER_INFO = "http://localhost:8080";
+    process.env.PAYLOAD_PUBLIC_ZITADEL_USER_INFO = "http://localhost:8080";
     protoSuccessMock = jest
       .spyOn(ZitadelStrategy.prototype, "success")
       .mockImplementation();
