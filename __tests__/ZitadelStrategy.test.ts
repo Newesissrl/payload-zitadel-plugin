@@ -1,9 +1,13 @@
 import { ZitadelStrategy } from "../src/strategies/ZitadelStrategy";
-import payload from "payload";
+import payload, { Payload } from "payload";
 import { Request } from "express";
 import { PaginatedDocs } from "payload/database";
+import { buildConfig, sanitizeConfig } from "payload/config";
+import { mongooseAdapter } from "@payloadcms/db-mongodb";
+import { slateEditor } from "@payloadcms/richtext-slate";
 
 jest.mock("payload");
+
 describe("ZitadelStrategy", () => {
   let strategy: ZitadelStrategy;
   let protoSuccessMock;
@@ -12,8 +16,45 @@ describe("ZitadelStrategy", () => {
   beforeEach(() => {
     process.env = { ...OLD_ENV }; // Make a copy
   });
-  beforeAll(() => {
-    strategy = new ZitadelStrategy(payload, "test-slug");
+  beforeAll(async () => {
+    const config = await buildConfig({
+      db: mongooseAdapter({ url: "" }),
+      editor: slateEditor({}),
+      collections: [
+        {
+          slug: "test-slug",
+          fields: [
+            {
+              name: "firstName",
+              type: "text",
+              required: true,
+            },
+            {
+              name: "last-Name",
+              type: "text",
+              required: true,
+            },
+          ],
+        },
+      ],
+    });
+    strategy = new ZitadelStrategy(
+      {
+        ...payload,
+        config: config,
+      } as Payload,
+      "test-slug",
+      [
+        {
+          from: "first_name",
+          to: "firstName",
+        },
+        {
+          from: "sub",
+          to: "lastName",
+        },
+      ]
+    );
     ZitadelStrategy.prototype.success = () => {};
     ZitadelStrategy.prototype.error = () => {};
     process.env.PAYLOAD_PUBLIC_ZITADEL_USER_INFO = "http://localhost:8080";
@@ -112,6 +153,16 @@ describe("ZitadelStrategy", () => {
         collection: "test-slug",
         _strategy: "test-slug-zitadel",
       });
+    });
+    it("should remap oidc fields", () => {
+      const remappedUser = strategy.remapFields({
+        first_name: "Alberto",
+        sub: "1234567890",
+        additional_field: "my-custom-field",
+      }) as any;
+      expect(remappedUser.firstName).toBe("Alberto");
+      expect(remappedUser.lastName).toBe("1234567890");
+      expect(remappedUser.additional_field).toBe("my-custom-field");
     });
   });
 });

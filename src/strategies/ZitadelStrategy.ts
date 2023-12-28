@@ -7,12 +7,18 @@ import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import getExtractJWT from "payload/dist/auth/getExtractJWT";
 import { PayloadRequest } from "payload/types";
+import { FieldMapping } from "../types";
 
 export class ZitadelStrategy extends Strategy {
   ctx: Payload;
   readonly slug: string;
   logger: pino.Logger;
-  constructor(ctx: Payload, collectionSlug: string) {
+
+  constructor(
+    ctx: Payload,
+    collectionSlug: string,
+    private readonly fieldsMappings: FieldMapping[] = []
+  ) {
     super();
     this.ctx = ctx;
     this.name = "zitadel";
@@ -28,12 +34,21 @@ export class ZitadelStrategy extends Strategy {
       .map((x) => wishlist[x % wishlist.length])
       .join("");
   }
-
+  remapFields(oidcUser) {
+    const result = Object.assign({}, oidcUser);
+    for (const mapping of this.fieldsMappings) {
+      if (!(mapping.from && oidcUser[mapping.from])) {
+        continue;
+      }
+      result[mapping.to] = oidcUser[mapping.from];
+    }
+    return result;
+  }
   createUser(oidcUser): Promise<any> {
     return this.ctx.create({
       collection: this.slug,
       data: {
-        ...oidcUser,
+        ...this.remapFields(oidcUser),
         password: this.createPassword(),
       },
     });
@@ -65,7 +80,7 @@ export class ZitadelStrategy extends Strategy {
       collection: this.slug,
       id: foundUser.id,
       data: {
-        ...oidcUser,
+        ...this.remapFields(oidcUser),
       },
     });
     this.successCallback(doc);
