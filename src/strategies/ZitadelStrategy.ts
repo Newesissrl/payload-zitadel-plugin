@@ -76,15 +76,15 @@ export class ZitadelStrategy extends Strategy {
     this.success(user);
   }
   async authenticate(req: Request): Promise<any> {
-    const { ZITADEL_USER_INFO } = process.env;
-    if (!ZITADEL_USER_INFO) {
+    const { PAYLOAD_PUBLIC_ZITADEL_USER_INFO } = process.env;
+    if (!PAYLOAD_PUBLIC_ZITADEL_USER_INFO) {
       this.logger.info("No 'ZITADEL_USER_INFO' key set");
       this.success(null);
       return;
     }
     const idpToken = req.cookies["idp_token"];
     if (idpToken) {
-      const response = await fetch(ZITADEL_USER_INFO, {
+      const response = await fetch(PAYLOAD_PUBLIC_ZITADEL_USER_INFO, {
         headers: {
           Authorization: `Bearer ${idpToken}`,
         },
