@@ -5,9 +5,13 @@ export const ZitadelRoutes = (app: Express) => {
     process.env.PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI
   );
   app.get(zitadelRedirectURL.pathname, async (req: Request, res: Response) => {
-    const { code, state } = req.query;
+    const { code, state, error, error_description } = req.query;
     if (!state) {
       res.status(400).send("Invalid 'state'");
+      return;
+    }
+    if (error) {
+      res.status(500).send(`There was an error: ${error_description}`);
       return;
     }
     const decodedState = atob(state.toString());

@@ -22,7 +22,11 @@ const LoginButton = (props?: LoginButtonProps) => {
           width: "100%",
           display: "block",
         }}
-        href={`${authorizeEndpoint}?response_mode=query&response_type=code&client_id=${clientID}&scope=${scope}&code_challenge=${codeChallenge}&code_challenge_method=${codeChallengeMethod}&redirect_uri=${encodeURIComponent(
+        href={`${authorizeEndpoint}?response_mode=query&response_type=code&client_id=${encodeURIComponent(
+          clientID
+        )}&scope=${encodeURIComponent(
+          scope
+        )}&code_challenge=${codeChallenge}&code_challenge_method=${codeChallengeMethod}&redirect_uri=${encodeURIComponent(
           redirectUri
         )}&state=${state}`}
       >

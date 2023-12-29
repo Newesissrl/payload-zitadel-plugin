@@ -7,13 +7,21 @@ const generateComponentConfigForProviders = async (
 ) => {
   const pkce = await generateCodeChallenge();
   const { authorizeEndpoint, redirectUri, clientID, scope } = pluginConfig.auth;
+  const orgIdScope = pluginConfig.auth.organizationId
+    ? `urn:zitadel:iam:org:id:${pluginConfig.auth.organizationId}`
+    : null;
   return pluginConfig.ui.LoginButton({
     loginButtonLabel: pluginConfig.ui.loginButtonLabel,
     codeChallenge: pkce.code_challenge,
     authorizeEndpoint,
     redirectUri,
     clientID,
-    scope: scope || "openid email profile urn:zitadel:iam:user:metadata",
+    scope: [
+      scope || "openid email profile urn:zitadel:iam:user:metadata",
+      orgIdScope,
+    ]
+      .filter((s) => Boolean(s))
+      .join(" "),
     codeChallengeMethod: "S256",
     state: btoa(
       JSON.stringify({
@@ -71,7 +79,8 @@ export const ZitadelStrategyPlugin = async (
             return new ZitadelStrategy(
               ctx,
               "users",
-              pluginConfig.fieldsMappings
+              pluginConfig.fieldsMappings,
+              pluginConfig.loggerOptions
             );
           },
         },
