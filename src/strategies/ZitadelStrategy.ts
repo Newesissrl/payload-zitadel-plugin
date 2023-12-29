@@ -51,8 +51,8 @@ export class ZitadelStrategy extends Strategy {
     }
     return result;
   }
-  createUser(oidcUser): Promise<any> {
-    return this.ctx.create({
+  async createUser(oidcUser): Promise<any> {
+    return await this.ctx.create({
       collection: this.slug,
       data: {
         ...this.remapFields(oidcUser),
