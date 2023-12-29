@@ -61,6 +61,7 @@ export class ZitadelStrategy extends Strategy {
     });
   }
   async findUser(oidcUser): Promise<PaginatedDocs<any>> {
+    this.logger.debug(`Searching user with sub = ${oidcUser.sub}`);
     const result = await this.ctx.find({
       collection: this.slug,
       where: {
@@ -70,9 +71,11 @@ export class ZitadelStrategy extends Strategy {
       },
     });
     if (result.docs && result.docs.length) {
-      return Promise.resolve(result);
+      this.logger.debug(`User found with sub search`);
+      return result;
     }
-    return this.ctx.find({
+    this.logger.debug(`Searching user with email search`);
+    return await this.ctx.find({
       collection: this.slug,
       where: {
         email: {
