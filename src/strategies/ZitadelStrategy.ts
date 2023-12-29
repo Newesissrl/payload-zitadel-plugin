@@ -17,12 +17,17 @@ export class ZitadelStrategy extends Strategy {
   constructor(
     ctx: Payload,
     collectionSlug: string,
-    private readonly fieldsMappings: FieldMapping[] = []
+    private readonly fieldsMappings: FieldMapping[] = [],
+    loggerOptions?: any
   ) {
     super();
     this.ctx = ctx;
     this.name = "zitadel";
-    this.logger = pino({ name: this.name });
+    this.logger = pino({
+      name: this.name,
+      level: process.env.PAYLOAD_LOG_LEVEL || "debug",
+      ...loggerOptions,
+    });
     this.slug = collectionSlug;
   }
 
@@ -40,7 +45,9 @@ export class ZitadelStrategy extends Strategy {
       if (!(mapping.from && oidcUser[mapping.from])) {
         continue;
       }
-      result[mapping.to] = oidcUser[mapping.from];
+      result[mapping.to] = mapping.decode
+        ? atob(oidcUser[mapping.from])
+        : oidcUser[mapping.from];
     }
     return result;
   }
@@ -106,7 +113,7 @@ export class ZitadelStrategy extends Strategy {
       });
       if (response.status > 299) {
         this.logger.info(
-          `Received ${response.status} from 'ZITADEL_USER_INFO'`
+          `Received ${response.status} from 'PAYLOAD_PUBLIC_ZITADEL_USER_INFO' endpoint`
         );
         this.success(null);
         return;
@@ -115,7 +122,7 @@ export class ZitadelStrategy extends Strategy {
       if (oidcUser["urn:zitadel:iam:user:metadata"]) {
         const rolesAsString = oidcUser["urn:zitadel:iam:user:metadata"].roles;
         if (rolesAsString) {
-          const decodedRoles = atob(rolesAsString).split(",");
+          const decodedRoles = atob(rolesAsString).replace(/"/g, "").split(",");
           oidcUser.roles = decodedRoles;
         }
       }

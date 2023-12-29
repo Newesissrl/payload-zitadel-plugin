@@ -34,6 +34,10 @@ describe("ZitadelStrategy", () => {
               type: "text",
               required: true,
             },
+            {
+              name: "locale",
+              type: "text",
+            },
           ],
         },
       ],
@@ -52,6 +56,11 @@ describe("ZitadelStrategy", () => {
         {
           from: "sub",
           to: "lastName",
+        },
+        {
+          from: "role",
+          to: "role",
+          decode: true,
         },
       ]
     );
@@ -163,6 +172,14 @@ describe("ZitadelStrategy", () => {
       expect(remappedUser.firstName).toBe("Alberto");
       expect(remappedUser.lastName).toBe("1234567890");
       expect(remappedUser.additional_field).toBe("my-custom-field");
+    });
+    it("should decode remapped field", () => {
+      const remappedUser = strategy.remapFields({
+        first_name: "Alberto",
+        sub: "1234567890",
+        role: "Y3VzdG9tLXJvbGU=",
+      }) as any;
+      expect(remappedUser.role).toBe("custom-role");
     });
   });
 });
