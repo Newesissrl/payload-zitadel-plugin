@@ -2,6 +2,7 @@ export declare type ZitadelStrategyPluginConfig = {
   ui: UIPluginConfig;
   auth: AuthPluginConfig;
   fieldsMappings: FieldMapping[];
+  loggerOptions?: any;
 };
 
 export type AuthPluginConfig = {
@@ -9,6 +10,7 @@ export type AuthPluginConfig = {
   redirectUri: string;
   clientID: string;
   scope?: string;
+  organizationId?: string;
 };
 
 export type UIPluginConfig = {
@@ -33,4 +35,5 @@ export declare type PKCE = {
 export declare type FieldMapping = {
   from: string;
   to: string;
+  decode?: boolean;
 };
