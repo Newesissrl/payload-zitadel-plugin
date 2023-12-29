@@ -51,7 +51,7 @@ const buildConfigAsync = async () => {
         clientID: process.env.PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID,
         redirectUri: process.env.PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI,
       },
-      fieldsMappings: [] // useful to remap fields from idP to the desired `required` fields
+      fieldsMappings: [], // useful to remap fields from idP to the desired `required` fields
       /*
       [{
         from: "name",
@@ -59,6 +59,7 @@ const buildConfigAsync = async () => {
       },
       ...]
       */
+     loggerOptions? // optional logging options for `pino` library
     });
     return buildConfig({
       .....
