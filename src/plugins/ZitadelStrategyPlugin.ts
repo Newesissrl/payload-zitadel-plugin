@@ -31,7 +31,7 @@ const generateComponentConfigForProviders = async (
   });
 };
 const DEFAULT_LOGIN_BUTTON_LABEL = "login-with-zitadel";
-export const ZitadelStrategyPlugin = async (
+export const ZitadelStrategyPlugin = (
   pluginConfig?: ZitadelStrategyPluginConfig
 ) => {
   return async (incomingConfig: Config): Promise<Config> => {
