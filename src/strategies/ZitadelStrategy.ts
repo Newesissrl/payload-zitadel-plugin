@@ -13,7 +13,7 @@ export class ZitadelStrategy extends Strategy {
   ctx: Payload;
   readonly slug: string;
   logger: pino.Logger;
-
+  collectionHaveEmailField: boolean = true;
   constructor(
     ctx: Payload,
     collectionSlug: string,
@@ -29,6 +29,9 @@ export class ZitadelStrategy extends Strategy {
       ...loggerOptions,
     });
     this.slug = collectionSlug;
+    const collection = ctx.collections[collectionSlug];
+    this.collectionHaveEmailField =
+      !collection?.config?.auth?.disableLocalStrategy;
   }
 
   createPassword(
@@ -40,7 +43,7 @@ export class ZitadelStrategy extends Strategy {
       .join("");
   }
   remapFields(oidcUser) {
-    const result = Object.assign({}, oidcUser);
+    const result = { ...oidcUser };
     for (const mapping of this.fieldsMappings) {
       if (!(mapping.from && oidcUser[mapping.from])) {
         continue;
@@ -52,8 +55,10 @@ export class ZitadelStrategy extends Strategy {
     return result;
   }
   async createUser(oidcUser): Promise<any> {
+    this.logger.debug(`Creating user = ${oidcUser.sub}`);
     return await this.ctx.create({
       collection: this.slug,
+      disableVerificationEmail: true,
       data: {
         ...this.remapFields(oidcUser),
         password: this.createPassword(),
@@ -72,6 +77,9 @@ export class ZitadelStrategy extends Strategy {
     });
     if (result.docs && result.docs.length) {
       this.logger.debug(`User found with sub search`);
+      return result;
+    }
+    if (!this.collectionHaveEmailField) {
       return result;
     }
     this.logger.debug(`Searching user with email search`);
@@ -101,6 +109,11 @@ export class ZitadelStrategy extends Strategy {
     this.success(user);
   }
   async authenticate(req: Request): Promise<any> {
+    if (req.url === `/${this.slug}/init`) {
+      this.logger.debug("Skipping endpoint to avoid duplicate requests");
+      this.success(null);
+      return;
+    }
     const { PAYLOAD_PUBLIC_ZITADEL_USER_INFO } = process.env;
     if (!PAYLOAD_PUBLIC_ZITADEL_USER_INFO) {
       this.logger.info("No 'PAYLOAD_PUBLIC_ZITADEL_USER_INFO' key set");
