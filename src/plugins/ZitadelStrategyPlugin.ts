@@ -2,6 +2,7 @@ import { Config } from "payload/config";
 import { ZitadelStrategyPluginConfig } from "../types";
 import { generateCodeChallenge } from "../utils/pcke";
 import { ZitadelStrategy } from "../strategies";
+import { IncomingAuthType } from "payload/dist/auth";
 const generateComponentConfigForProviders = async (
   pluginConfig: ZitadelStrategyPluginConfig
 ) => {
@@ -35,7 +36,9 @@ export const ZitadelStrategyPlugin = (
   pluginConfig?: ZitadelStrategyPluginConfig
 ) => {
   return async (incomingConfig: Config): Promise<Config> => {
-    const collectionWithAuth = incomingConfig.collections?.find((c) => c.auth);
+    const collectionWithAuth = incomingConfig.collections?.find(
+      (c) => c.slug === incomingConfig.admin.user
+    );
     if (!collectionWithAuth) {
       return incomingConfig;
     }
@@ -72,6 +75,9 @@ export const ZitadelStrategyPlugin = (
       },
     });
     collectionWithAuth.auth = {
+      ...(typeof collectionWithAuth.auth === typeof true
+        ? {}
+        : (collectionWithAuth.auth as IncomingAuthType)),
       strategies: [
         {
           name: ZitadelStrategy.name,
