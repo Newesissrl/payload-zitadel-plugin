@@ -84,7 +84,7 @@ export const ZitadelStrategyPlugin = (
           strategy: (ctx) => {
             return new ZitadelStrategy(
               ctx,
-              "users",
+              ctx.config.admin.user,
               pluginConfig.fieldsMappings,
               pluginConfig.loggerOptions
             );
