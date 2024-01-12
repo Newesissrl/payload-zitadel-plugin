@@ -41,6 +41,9 @@ describe("ZitadelStrategy", () => {
           ],
         },
       ],
+      admin: {
+        user: "test-slug",
+      },
     });
     strategy = new ZitadelStrategy(
       {

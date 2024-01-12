@@ -31,7 +31,7 @@ export class ZitadelStrategy extends Strategy {
     this.slug = collectionSlug;
     const collection = ctx.collections[collectionSlug];
     this.collectionHaveEmailField =
-      !collection.config.auth?.disableLocalStrategy;
+      !collection?.config?.auth?.disableLocalStrategy;
   }
 
   createPassword(
