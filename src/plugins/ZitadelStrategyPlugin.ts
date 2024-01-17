@@ -133,7 +133,7 @@ export const ZitadelStrategyPlugin = (
       admin: {
         ...incomingConfig.admin,
         components: {
-          ...incomingConfig.components,
+          ...incomingConfig.admin.components,
           [componentsType]: loginComponents,
         },
       },
