@@ -1,6 +1,12 @@
 import { Express, Request, Response } from "express";
+import { pino } from "pino";
 
-export const ZitadelRoutes = (app: Express) => {
+export const ZitadelRoutes = (app: Express, loggerOptions?: any) => {
+  const logger = pino({
+    name: "zitadel-routes",
+    level: process.env.PAYLOAD_LOG_LEVEL || "debug",
+    ...loggerOptions,
+  });
   const zitadelRedirectURL = new URL(
     process.env.PAYLOAD_PUBLIC_ZITADEL_REDIRECT_URI
   );
@@ -11,6 +17,7 @@ export const ZitadelRoutes = (app: Express) => {
       return;
     }
     if (error) {
+      logger.error(`There was an error: ${error_description}`);
       res.status(500).send(`There was an error: ${error_description}`);
       return;
     }
@@ -24,11 +31,14 @@ export const ZitadelRoutes = (app: Express) => {
       code_verifier: stateJson.codeVerifier,
     };
     const formBody = [];
-    for (var property in data) {
-      var encodedKey = encodeURIComponent(property);
-      var encodedValue = encodeURIComponent(data[property]);
+    for (const property in data) {
+      const encodedKey = encodeURIComponent(property);
+      const encodedValue = encodeURIComponent(data[property]);
       formBody.push(encodedKey + "=" + encodedValue);
     }
+    logger.debug(
+      `Fetching ${process.env.PAYLOAD_PUBLIC_ZITADEL_TOKEN_ENDPOINT}`
+    );
     const response = await fetch(
       process.env.PAYLOAD_PUBLIC_ZITADEL_TOKEN_ENDPOINT,
       {
@@ -41,11 +51,17 @@ export const ZitadelRoutes = (app: Express) => {
     );
     const json = await response.json();
     if (json.error) {
+      logger.error(`Error: ${json.error} (${json.error_description})`);
       res
         .sendStatus(400)
         .send(`Error: ${json.error} (${json.error_description})`);
       return;
     }
+    logger.debug(
+      `Setting "idp_token" cookie (maxAge: ${
+        +json.expires_in * 1000
+      }, domain: ${process.env.PAYLOAD_PUBLIC_COOKIE_DOMAIN}")`
+    );
     res.cookie("idp_token", json.access_token, {
       maxAge: +json.expires_in * 1000,
       sameSite: "none",
