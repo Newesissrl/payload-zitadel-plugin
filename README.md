@@ -31,6 +31,7 @@ PAYLOAD_PUBLIC_ZITADEL_TOKEN_ENDPOINT=http://localhost:8080/oauth/v2/token
 PAYLOAD_PUBLIC_ZITADEL_USER_INFO=http://localhost:8080/oidc/v1/userinfo
 PAYLOAD_PUBLIC_ZITADEL_AUTHORIZE_ENDPOINT=http://localhost:8080/oauth/v2/authorize
 PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID= #the one you get from Zitadel app
+PAYLOAD_PUBLIC_ZITADEL_COOKIE_NAME= #(optional) if you want to specify a different cookie name
 ```
 
 ### payload.config.ts

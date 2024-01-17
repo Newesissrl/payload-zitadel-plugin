@@ -120,7 +120,9 @@ export class ZitadelStrategy extends Strategy {
       this.success(null);
       return;
     }
-    const idpToken = req.cookies["idp_token"];
+    const cookieName =
+      process.env.PAYLOAD_PUBLIC_ZITADEL_COOKIE_NAME || "idp_token";
+    const idpToken = req.cookies[cookieName];
     if (idpToken) {
       const response = await fetch(PAYLOAD_PUBLIC_ZITADEL_USER_INFO, {
         headers: {

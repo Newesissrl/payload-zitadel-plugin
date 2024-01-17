@@ -57,12 +57,14 @@ export const ZitadelRoutes = (app: Express, loggerOptions?: any) => {
         .send(`Error: ${json.error} (${json.error_description})`);
       return;
     }
+    const cookieName =
+      process.env.PAYLOAD_PUBLIC_ZITADEL_COOKIE_NAME || "idp_token";
     logger.debug(
-      `Setting "idp_token" cookie (maxAge: ${
+      `Setting "${cookieName}" cookie (maxAge: ${
         +json.expires_in * 1000
       }, domain: ${process.env.PAYLOAD_PUBLIC_COOKIE_DOMAIN}")`
     );
-    res.cookie("idp_token", json.access_token, {
+    res.cookie(cookieName, json.access_token, {
       maxAge: +json.expires_in * 1000,
       sameSite: "none",
       secure: true,
