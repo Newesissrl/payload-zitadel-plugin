@@ -66,7 +66,8 @@ export const ZitadelRoutes = (app: Express, loggerOptions?: any) => {
     );
     res.cookie(cookieName, json.access_token, {
       maxAge: +json.expires_in * 1000,
-      sameSite: "none",
+      sameSite: (process.env.PAYLOAD_PUBLIC_ZITADEL_COOKIE_SAMESITE ||
+        "lax") as any,
       secure: true,
       domain: process.env.PAYLOAD_PUBLIC_COOKIE_DOMAIN,
     });
