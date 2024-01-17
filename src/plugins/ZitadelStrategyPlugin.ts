@@ -107,7 +107,9 @@ export const ZitadelStrategyPlugin = (
           if (collection.auth.cookies.domain) {
             cookieOptions.domain = collection.auth.cookies.domain;
           }
-          res.clearCookie("idp_token", cookieOptions);
+          const cookieName =
+            process.env.PAYLOAD_PUBLIC_ZITADEL_COOKIE_NAME || "idp_token";
+          res.clearCookie(cookieName, cookieOptions);
         },
       ]),
     };
