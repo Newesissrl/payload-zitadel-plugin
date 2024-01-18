@@ -67,7 +67,7 @@ export class ZitadelStrategy extends Strategy {
   }
   async findUser(oidcUser): Promise<PaginatedDocs<any>> {
     this.logger.debug(`Searching user with sub = ${oidcUser.sub}`);
-    const result = await this.ctx.find({
+    const userFromSub = await this.ctx.find({
       collection: this.slug,
       where: {
         sub: {
@@ -75,22 +75,25 @@ export class ZitadelStrategy extends Strategy {
         },
       },
     });
-    if (result.docs && result.docs.length) {
+    if (userFromSub.docs && userFromSub.docs.length) {
       this.logger.debug(`User found with sub search`);
-      return result;
+      return userFromSub;
     }
-    if (!this.collectionHaveEmailField) {
-      return result;
-    }
-    this.logger.debug(`Searching user with email search`);
-    return await this.ctx.find({
-      collection: this.slug,
-      where: {
-        email: {
-          equals: oidcUser.email,
+    try {
+      this.logger.debug(
+        `Trying to search user with email search (it may fail caused by missing 'email' path)`
+      );
+      return await this.ctx.find({
+        collection: this.slug,
+        where: {
+          email: {
+            equals: oidcUser.email,
+          },
         },
-      },
-    });
+      });
+    } catch {
+      return userFromSub;
+    }
   }
 
   async mergeUsers(foundUser, oidcUser): Promise<void> {
