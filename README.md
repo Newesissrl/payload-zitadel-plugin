@@ -34,6 +34,7 @@ PAYLOAD_PUBLIC_ZITADEL_CLIENT_ID= #the one you get from Zitadel app
 PAYLOAD_PUBLIC_ZITADEL_COOKIE_NAME= #(optional) if you want to specify a different cookie name
 PAYLOAD_PUBLIC_ZITADEL_COOKIE_SECURE= #(optional) if you want to specify a secure cookie (default = false)
 PAYLOAD_PUBLIC_ZITADEL_COOKIE_SAMESITE= #(optional) if you want to specify a different sameSite option for cookie. default = "lax"
+PAYLOAD_PUBLIC_COOKIE_DOMAIN= #(optional) if you want to specify a cookie domain
 ```
 
 ### payload.config.ts
