@@ -68,7 +68,10 @@ export const ZitadelRoutes = (app: Express, loggerOptions?: any) => {
       maxAge: +json.expires_in * 1000,
       sameSite: (process.env.PAYLOAD_PUBLIC_ZITADEL_COOKIE_SAMESITE ||
         "lax") as any,
-      secure: true,
+      httpOnly: true,
+      secure: Boolean(
+        process.env.PAYLOAD_PUBLIC_ZITADEL_COOKIE_SECURE || false
+      ),
       domain: process.env.PAYLOAD_PUBLIC_COOKIE_DOMAIN,
     });
     res.redirect("/");
