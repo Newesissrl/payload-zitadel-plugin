@@ -75,7 +75,7 @@ export class ZitadelStrategy extends Strategy {
         },
       },
     });
-    if (userFromSub.docs && userFromSub.docs.length) {
+    if (userFromSub.docs?.length) {
       this.logger.debug(`User found with sub search`);
       return userFromSub;
     }
@@ -112,6 +112,10 @@ export class ZitadelStrategy extends Strategy {
     this.success(user);
   }
   async authenticate(req: Request): Promise<any> {
+    if (req.user) {
+      this.success(req.user);
+      return;
+    }
     if (req.url === `/${this.slug}/init`) {
       this.logger.debug("Skipping endpoint to avoid duplicate requests");
       this.success(null);
@@ -148,7 +152,7 @@ export class ZitadelStrategy extends Strategy {
         }
       }
       const collection = await this.findUser(oidcUser);
-      if (collection.docs && collection.docs.length) {
+      if (collection.docs?.length) {
         const doc = collection.docs[0];
         this.logger.debug(`User found (id = ${doc.id}). Merging info`);
         await this.mergeUsers(doc, oidcUser);
@@ -177,7 +181,7 @@ export class ZitadelStrategy extends Strategy {
               },
             },
           });
-          if (collection && collection.docs && collection.docs.length) {
+          if (collection?.docs?.length) {
             const user = collection.docs[0];
             this.success({
               ...user,
