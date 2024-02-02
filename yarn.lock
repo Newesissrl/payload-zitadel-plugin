@@ -3217,10 +3217,10 @@
     "@smithy/util-buffer-from" "^2.0.0"
     tslib "^2.5.0"
 
-"@swc/cli@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/@swc/cli/-/cli-0.3.5.tgz#ae0c522db6d06dd855b7fbd17c37bca8210d0fbb"
-  integrity sha512-YWt6J7KrbGxvtuktFzsXibr0Npi/VhTdtA+rVkRty0A1KfQD18o2Tt9JMRlKTpH40ZMFygJf/Up6FxCFdFjV5g==
+"@swc/cli@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/@swc/cli/-/cli-0.3.6.tgz#2fbc00443d354d5ca4eb287d1bfedc9a29406956"
+  integrity sha512-ZoQbsJXjiWIlbCgr1m+m7TGNk7pILb3uWm4t423jM8vot8clseclXFU4QCMqJUVcYCSwKStzP3+yYMZvme/lsQ==
   dependencies:
     "@mole-inc/bin-wrapper" "^8.0.1"
     commander "^7.1.0"
