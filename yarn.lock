@@ -2769,10 +2769,10 @@
     "@parcel/utils" "2.11.0"
     nullthrows "^1.1.1"
 
-"@payloadcms/db-mongodb@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@payloadcms/db-mongodb/-/db-mongodb-1.4.0.tgz#84cf6c857816bf85007711150cb73b07ce56528d"
-  integrity sha512-9DVazhkV5+T2+NpIvIDMZ3AmJScjkj7r8OPwrz3BBvXXKid2NUDewTKFQSVtqWK6Ed5ArlvCAlk9J6zO3Q0+cA==
+"@payloadcms/db-mongodb@^1.4.1":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@payloadcms/db-mongodb/-/db-mongodb-1.4.1.tgz#0e74dd173801d95977d65581b87ff945a8f82636"
+  integrity sha512-rqN1zESukuPtecSXlyggVYtoq6yC21CH9r29d2I2CwQNGk8PQW/UrIciPSvpQWRYFB9C6flnQ+r+HBjx06YvQQ==
   dependencies:
     bson-objectid "2.0.4"
     deepmerge "4.3.1"
