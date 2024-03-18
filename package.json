@@ -61,7 +61,7 @@
     "jest-fetch-mock": "^3.0.3",
     "mini-css-extract-plugin": "^2.8.1",
     "postcss-loader": "^8.1.1",
-    "postcss-preset-env": "^9.5.1",
+    "postcss-preset-env": "^9.5.2",
     "rimraf": "^5.0.0",
     "sass-loader": "^14.1.1",
     "serve": "^14.0.1",
