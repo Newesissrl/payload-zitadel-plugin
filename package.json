@@ -42,7 +42,7 @@
     "@babel/preset-typescript": "^7.24.1",
     "@parcel/transformer-typescript-types": "2.12.0",
     "@payloadcms/db-mongodb": "^1.4.4",
-    "@payloadcms/richtext-slate": "^1.4.0",
+    "@payloadcms/richtext-slate": "^1.5.0",
     "@swc/cli": "^0.3.12",
     "@swc/core": "^1.4.11",
     "swc-loader": "^0.2.6",
