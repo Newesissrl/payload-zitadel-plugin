@@ -63,7 +63,7 @@
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.5.4",
     "rimraf": "^5.0.0",
-    "sass-loader": "^14.1.1",
+    "sass-loader": "^14.2.0",
     "serve": "^14.0.1",
     "string-width": "^7.1.0",
     "ts-jest": "29.1.2",
