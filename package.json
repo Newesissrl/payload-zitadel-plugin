@@ -50,7 +50,7 @@
     "@types/jest": "29.5.12",
     "@types/node": "^20.12.7",
     "@types/passport": "1.0.16",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
     "babel-loader": "^9.1.2",
     "cliui": "^8.0.1",
