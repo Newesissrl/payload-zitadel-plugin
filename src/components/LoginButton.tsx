@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginButtonProps } from "./types";
+import type { LoginButtonProps } from "./types";
 import { useTranslation } from "react-i18next";
 
 const LoginButton = (props?: LoginButtonProps) => {

@@ -1,8 +1,8 @@
-import { Config } from "payload/config";
-import { ZitadelStrategyPluginConfig } from "../types";
+import type { Config } from "payload/config";
+import type { ZitadelStrategyPluginConfig } from "../types";
 import { generateCodeChallenge } from "../utils/pcke";
 import { ZitadelStrategy } from "../strategies";
-import { IncomingAuthType } from "payload/dist/auth";
+import type { IncomingAuthType } from "payload/dist/auth";
 const generateComponentConfigForProviders = async (
   pluginConfig: ZitadelStrategyPluginConfig
 ) => {

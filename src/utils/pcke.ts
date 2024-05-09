@@ -1,4 +1,4 @@
-import { PKCE } from "../types";
+import type { PKCE } from "../types";
 import crypto from "crypto";
 
 // GENERATING CODE VERIFIER
