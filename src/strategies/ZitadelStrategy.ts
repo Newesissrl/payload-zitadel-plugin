@@ -1,13 +1,13 @@
 import { Strategy } from "passport";
 import { Payload } from "payload";
-import { Request } from "express";
+import type { Request } from "express";
 import { pino } from "pino";
 import { PaginatedDocs } from "payload/database";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
 import getExtractJWT from "payload/dist/auth/getExtractJWT";
-import { PayloadRequest } from "payload/types";
-import { FieldMapping } from "../types";
+import type { PayloadRequest } from "payload/types";
+import type { FieldMapping } from "../types";
 
 export class ZitadelStrategy extends Strategy {
   ctx: Payload;

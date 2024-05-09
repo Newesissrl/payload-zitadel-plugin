@@ -1,4 +1,4 @@
-import { Express, Request, Response } from "express";
+import type { Express, Request, Response } from "express";
 import { pino } from "pino";
 
 export const ZitadelRoutes = (app: Express, loggerOptions?: any) => {
