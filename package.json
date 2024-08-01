@@ -37,7 +37,7 @@
     "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.6",
     "@babel/plugin-transform-runtime": "^7.24.7",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.24.5",
+    "@babel/preset-env": "^7.25.3",
     "@babel/preset-react": "^7.24.6",
     "@babel/preset-typescript": "^7.24.7",
     "@parcel/transformer-typescript-types": "2.12.0",
