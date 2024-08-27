@@ -1262,12 +1262,12 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.24.0"
 
-"@babel/plugin-transform-nullish-coalescing-operator@^7.24.1", "@babel/plugin-transform-nullish-coalescing-operator@^7.24.6":
-  version "7.24.6"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-nullish-coalescing-operator/-/plugin-transform-nullish-coalescing-operator-7.24.6.tgz#12b83b3cdfd1cd2066350e36e4fb912ab194545e"
-  integrity sha512-+QlAiZBMsBK5NqrBWFXCYeXyiU1y7BQ/OYaiPAcQJMomn5Tyg+r5WuVtyEuvTbpV7L25ZSLfE+2E9ywj4FD48A==
+"@babel/plugin-transform-nullish-coalescing-operator@^7.24.1", "@babel/plugin-transform-nullish-coalescing-operator@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-nullish-coalescing-operator/-/plugin-transform-nullish-coalescing-operator-7.24.7.tgz#1de4534c590af9596f53d67f52a92f12db984120"
+  integrity sha512-Ts7xQVk1OEocqzm8rHMXHlxvsfZ0cEF2yomUqpKENHWMF4zKk175Y4q8H5knJes6PgYad50uuRmt3UJuhBw8pQ==
   dependencies:
-    "@babel/helper-plugin-utils" "^7.24.6"
+    "@babel/helper-plugin-utils" "^7.24.7"
     "@babel/plugin-syntax-nullish-coalescing-operator" "^7.8.3"
 
 "@babel/plugin-transform-numeric-separator@^7.24.1":
