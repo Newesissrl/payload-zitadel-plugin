@@ -3131,16 +3131,16 @@
     "@parcel/utils" "2.12.0"
     nullthrows "^1.1.1"
 
-"@payloadcms/db-mongodb@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@payloadcms/db-mongodb/-/db-mongodb-1.5.1.tgz#b44f314518d3bf73990c6f84afafcd5daafd6693"
-  integrity sha512-llaVGLqHkBaRvMuPG0hNdXUQ0UBfzCxujAc2N9ZtNGru7+PIyxsjVbhvgflcybuFHX12BDgOD1uvTUWfa/MgiA==
+"@payloadcms/db-mongodb@^1.7.5":
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/@payloadcms/db-mongodb/-/db-mongodb-1.7.5.tgz#e726234c387456e8b0a04dd4b81bb485bd200429"
+  integrity sha512-2UQfVTjdZYSUa4T1DemY/Q1wMYuCR7f69nX0Q387li2zKllYGHxZZLVuq9gK2iNe1+2F03wG5mGS665/0AEqQQ==
   dependencies:
     bson-objectid "2.0.4"
     deepmerge "4.3.1"
     get-port "5.1.1"
     http-status "1.6.2"
-    mongoose "6.12.3"
+    mongoose "6.13.8"
     mongoose-aggregate-paginate-v2 "1.0.6"
     mongoose-paginate-v2 "1.7.22"
     prompts "2.4.2"
@@ -8394,10 +8394,10 @@ mongodb-connection-string-url@^2.6.0:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@4.17.1:
-  version "4.17.1"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.17.1.tgz#ccff6ddbda106d5e06c25b0e4df454fd36c5f819"
-  integrity sha512-MBuyYiPUPRTqfH2dV0ya4dcr2E5N52ocBuZ8Sgg/M030nGF78v855B3Z27mZJnp8PxjnUquEnAtjOsphgMZOlQ==
+mongodb@4.17.2:
+  version "4.17.2"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-4.17.2.tgz#237c0534e36a3449bd74c6bf6d32f87a1ca7200c"
+  integrity sha512-mLV7SEiov2LHleRJPMPrK2PMyhXFZt2UQLC4VD4pnth3jMjYKHhtqfwwkkvS/NXuo/Fp3vbhaNcXrIDaLRb9Tg==
   dependencies:
     bson "^4.7.2"
     mongodb-connection-string-url "^2.6.0"
@@ -8416,14 +8416,14 @@ mongoose-paginate-v2@1.7.22:
   resolved "https://registry.yarnpkg.com/mongoose-paginate-v2/-/mongoose-paginate-v2-1.7.22.tgz#9f178fe5fb71597e231639adac84d3ab9a96c62a"
   integrity sha512-xW5GugkE21DJiu9e13EOxKt4ejEKQkRP/S1PkkXRjnk2rRZVKBcld1nPV+VJ/YCPfm8hb3sz9OvI7O38RmixkA==
 
-mongoose@6.12.3:
-  version "6.12.3"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.12.3.tgz#bc921ca2fd6d4c1a48dbf7bc88cf3eef1d3c4926"
-  integrity sha512-MNJymaaXali7w7rHBxVUoQ3HzHHMk/7I/+yeeoSa4rUzdjZwIWQznBNvVgc0A8ghuJwsuIkb5LyLV6gSjGjWyQ==
+mongoose@6.13.8:
+  version "6.13.8"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-6.13.8.tgz#6d57b513fde0b4351d1354fb2d86c446779570c0"
+  integrity sha512-JHKco/533CyVrqCbyQsnqMpLn8ZCiKrPDTd2mvo2W7ygIvhygWjX2wj+RPjn6upZZgw0jC6U51RD7kUsyK8NBg==
   dependencies:
     bson "^4.7.2"
     kareem "2.5.1"
-    mongodb "4.17.1"
+    mongodb "4.17.2"
     mpath "0.9.0"
     mquery "4.0.3"
     ms "2.1.3"
