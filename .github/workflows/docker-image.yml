@@ -22,3 +22,9 @@ jobs:
     environment: production
     steps:
       - run: echo "OK"
+
+  deploy_to_dev:
+    runs-on: ubuntu-latest
+    environment: development
+    steps:
+      - run: echo "OK"
