@@ -40,7 +40,7 @@
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.24.7",
-    "@parcel/transformer-typescript-types": "2.12.0",
+    "@parcel/transformer-typescript-types": "2.15.1",
     "@payloadcms/db-mongodb": "^1.5.1",
     "@payloadcms/richtext-slate": "^1.5.2",
     "@swc/cli": "^0.6.0",
