@@ -2480,10 +2480,10 @@
     prompts "2.4.2"
     uuid "9.0.0"
 
-"@mzinga/richtext-slate@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@mzinga/richtext-slate/-/richtext-slate-0.0.2.tgz#fb6d25ab46a55fdc7aeddc4f6bc94f35fda7921f"
-  integrity sha512-wAieFvuq8hdCueUJelRdg1G2oTIYBjYf7jHe24E1lMPC63KLGvv5v6ZmkhBIOpr8mRuN/Fz7uBTuaS9GLuc5oQ==
+"@mzinga/richtext-slate@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@mzinga/richtext-slate/-/richtext-slate-0.0.6.tgz#053475ebe39f04b6bd322177658a52f14aa7bfae"
+  integrity sha512-Ej7w/AwMxX4FtrQup4fOf09hvP8+qj5mlP2CvU9bPkxz+cXpnN0zdteVc+faXI8Xwz/Y/b9bWO6HUDoc5IZfiQ==
   dependencies:
     "@faceless-ui/modal" "2.0.2"
     i18next "22.5.1"
