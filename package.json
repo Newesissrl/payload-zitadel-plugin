@@ -1,6 +1,6 @@
 {
   "name": "@newesissrl/payload-zitadel-plugin",
-  "version": "0.0.38",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/Newesissrl/payload-zitadel-plugin.git",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "payload": "^2.30.3"
+    "mzinga": "0.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
@@ -41,8 +41,8 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.24.7",
     "@parcel/transformer-typescript-types": "2.15.4",
-    "@payloadcms/db-mongodb": "^1.5.1",
-    "@payloadcms/richtext-slate": "^1.5.2",
+    "@mzinga/db-mongodb": "0.0.2",
+    "@mzinga/richtext-slate": "0.0.2",
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.7.36",
     "swc-loader": "^0.2.6",
@@ -77,17 +77,16 @@
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "cookie-parser": "^1.4.6",
-    "payload": "^2.30.3",
+    "mzinga": "0.0.2",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "keywords": [
-    "payload",
+    "mzinga",
     "plugin",
-    "payload-plugin",
-    "payloadcms",
+    "mzinga-plugin",
     "zitadel"
   ]
 }

@@ -1,12 +1,11 @@
-import { Strategy } from "passport";
-import { Payload } from "payload";
-import type { Request } from "express";
-import { pino } from "pino";
-import { PaginatedDocs } from "payload/database";
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
-import getExtractJWT from "payload/dist/auth/getExtractJWT";
-import type { PayloadRequest } from "payload/types";
+import { Payload } from "mzinga";
+import { PaginatedDocs } from "mzinga/database";
+import getExtractJWT from "mzinga/dist/auth/getExtractJWT";
+import type { PayloadRequest } from "mzinga/types";
+import { Strategy } from "passport";
+import { pino } from "pino";
 import type { FieldMapping } from "../types";
 
 export class ZitadelStrategy extends Strategy {
@@ -111,7 +110,7 @@ export class ZitadelStrategy extends Strategy {
     user._strategy = `${this.slug}-${this.name}`;
     this.success(user);
   }
-  async authenticate(req: Request): Promise<any> {
+  async authenticate(req: any): Promise<any> {
     if (req.user) {
       this.success(req.user);
       return;
