@@ -1,16 +1,16 @@
-import { ZitadelStrategy } from "../src/strategies/ZitadelStrategy";
-import payload, { Payload } from "payload";
+import { mongooseAdapter } from "@mzinga/db-mongodb";
+import { slateEditor } from "@mzinga/richtext-slate";
 import { Request } from "express";
-import { PaginatedDocs } from "payload/database";
-import { buildConfig, sanitizeConfig } from "payload/config";
-import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { slateEditor } from "@payloadcms/richtext-slate";
+import payload, { Payload } from "mzinga";
+import { buildConfig } from "mzinga/config";
+import { PaginatedDocs } from "mzinga/database";
+import { ZitadelStrategy } from "../src/strategies/ZitadelStrategy";
 
-jest.mock("payload");
+jest.mock("mzinga");
 
 describe("ZitadelStrategy", () => {
   let strategy: ZitadelStrategy;
-  let protoSuccessMock;
+  let protoSuccessMock: any;
   const OLD_ENV = process.env;
 
   beforeEach(() => {
