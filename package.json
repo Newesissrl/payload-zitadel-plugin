@@ -42,7 +42,7 @@
     "@babel/preset-typescript": "^7.24.7",
     "@parcel/transformer-typescript-types": "2.15.4",
     "@mzinga/db-mongodb": "0.0.2",
-    "@mzinga/richtext-slate": "0.0.2",
+    "@mzinga/richtext-slate": "0.0.6",
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.7.36",
     "swc-loader": "^0.2.6",
