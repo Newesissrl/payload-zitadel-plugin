@@ -65,7 +65,7 @@
     "rimraf": "^6.0.1",
     "sass-loader": "^16.0.5",
     "serve": "^14.2.5",
-    "string-width": "^7.2.0",
+    "string-width": "^8.1.0",
     "ts-jest": "29.2.5",
     "ts-loader": "^9.4.2",
     "ts-node": "10.9.2",
