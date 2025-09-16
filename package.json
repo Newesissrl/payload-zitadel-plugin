@@ -27,7 +27,7 @@
     "push:cov": "yarn test && docker run -v $PWD:/code codacy/codacy-coverage-reporter report --coverage-reports /code/coverage/lcov.info"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.2.2",
     "mzinga": "0.0.2"
   },
   "devDependencies": {
