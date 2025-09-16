@@ -8060,10 +8060,10 @@ mz@^2.7.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
-mzinga@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/mzinga/-/mzinga-0.0.2.tgz#de306666df9e0656bfa796106c63c77e1d8c8d52"
-  integrity sha512-XOK7yAZwacZ97nSie1HMFYeaz2WGBAqsSe2QVaT8gNkJfDEfo/Yx8vEaWzrQvT5Rnn5vxNu35c9wwrJUkCmQUQ==
+mzinga@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/mzinga/-/mzinga-0.0.6.tgz#25d2aea1ca091fb099f49b57637b2347748afc01"
+  integrity sha512-35RqtFqaJAw82wzdppFSi6UV1+tQb7aQ+Ff6OPKJBnMtKzw1NTh4dBRrGBCXBcuiF/rykrIDQsqdpJpemFoY+w==
   dependencies:
     "@date-io/date-fns" "2.16.0"
     "@dnd-kit/core" "6.0.8"
