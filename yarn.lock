@@ -2465,10 +2465,10 @@
   dependencies:
     sparse-bitfield "^3.0.3"
 
-"@mzinga/db-mongodb@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@mzinga/db-mongodb/-/db-mongodb-0.0.2.tgz#536e50dc5f277aea9ad66b514ac6fa836ca3fba1"
-  integrity sha512-2wi2drC/qw/w3py9G0iFbIi6J9VH5ANYxxn/Rq3HIOMXPj/RMpjBVc2qwn7NrxLM8HbzU6XbMRhhRUe10EU7yw==
+"@mzinga/db-mongodb@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@mzinga/db-mongodb/-/db-mongodb-0.0.6.tgz#db6bd912659dd31b18fa2bc4546687967cfa4db4"
+  integrity sha512-LsKx8xtH3m0mZqHQMcdvIpLkNW8DGJA/+I4oEgL5VbUO8mZJx1az/kE2N3LSXi6LrSqxOcb9sUBOknEoY2m7aA==
   dependencies:
     bson-objectid "2.0.4"
     deepmerge "4.3.1"
