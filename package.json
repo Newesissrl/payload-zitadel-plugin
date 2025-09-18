@@ -48,7 +48,7 @@
     "swc-loader": "^0.2.6",
     "@types/express": "5.0.3",
     "@types/jest": "29.5.12",
-    "@types/node": "^24.5.1",
+    "@types/node": "^24.5.2",
     "@types/passport": "1.0.17",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.17.0",
