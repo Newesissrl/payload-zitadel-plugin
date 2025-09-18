@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.2",
-    "mzinga": "0.0.2"
+    "mzinga": "0.0.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
@@ -77,7 +77,7 @@
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "cookie-parser": "^1.4.6",
-    "mzinga": "0.0.2",
+    "mzinga": "0.0.6",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "publishConfig": {
