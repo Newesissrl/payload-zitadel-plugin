@@ -5,6 +5,18 @@
 
 version: 2
 updates:
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/.github" # Location of package manifests
+    schedule:
+      interval: "daily"
+    groups:
+      minors:
+        update-types:
+          - "minor"
+          - "patch"
+      major:
+        update-types:
+          - "major"
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
