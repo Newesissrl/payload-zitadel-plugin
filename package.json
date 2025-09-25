@@ -44,7 +44,7 @@
     "@mzinga/db-mongodb": "0.0.6",
     "@mzinga/richtext-slate": "0.0.6",
     "@swc/cli": "^0.7.8",
-    "@swc/core": "^1.7.36",
+    "@swc/core": "^1.13.19",
     "swc-loader": "^0.2.6",
     "@types/express": "5.0.3",
     "@types/jest": "29.5.12",
