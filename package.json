@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.2",
-    "mzinga": "0.0.6"
+    "mzinga": "0.0.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
@@ -41,8 +41,8 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.24.7",
     "@parcel/transformer-typescript-types": "2.16.0",
-    "@mzinga/db-mongodb": "0.0.6",
-    "@mzinga/richtext-slate": "0.0.6",
+    "@mzinga/db-mongodb": "0.0.7",
+    "@mzinga/richtext-slate": "0.0.7",
     "@swc/cli": "^0.7.8",
     "@swc/core": "^1.13.19",
     "swc-loader": "^0.2.6",
@@ -77,7 +77,7 @@
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "cookie-parser": "^1.4.6",
-    "mzinga": "0.0.6",
+    "mzinga": "0.0.7",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "publishConfig": {
