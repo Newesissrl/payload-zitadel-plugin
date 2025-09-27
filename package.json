@@ -1,6 +1,6 @@
 {
   "name": "@newesissrl/payload-zitadel-plugin",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/Newesissrl/payload-zitadel-plugin.git",
@@ -41,7 +41,7 @@
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.24.7",
     "@mzinga/db-mongodb": "0.0.8",
-    "@mzinga/richtext-slate": "0.0.7",
+    "@mzinga/richtext-slate": "0.0.8",
     "@parcel/transformer-typescript-types": "2.16.0",
     "@swc/cli": "^0.7.8",
     "@swc/core": "^1.13.19",

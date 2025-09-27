@@ -2491,16 +2491,16 @@
     prompts "2.4.2"
     uuid "9.0.0"
 
-"@mzinga/richtext-slate@0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@mzinga/richtext-slate/-/richtext-slate-0.0.7.tgz#3b47ac4f18a992988f3db6e4f0b84c4a5c2fdf3e"
-  integrity sha512-DhOMPO+dzNMaP86dllUNEwOyJhNKV3Hm7xxs7quyEHMwYTOgdvcz8O6C73FYHn2uEW7JOr2wSlP2OPoR7xFe+A==
+"@mzinga/richtext-slate@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@mzinga/richtext-slate/-/richtext-slate-0.0.8.tgz#b1aeb5b26549cc7555e30eff7eb81188fc2beeb8"
+  integrity sha512-ZCCyCdsqF2t1bxTlAXXcD0batI+uXNf1qHvWIFQkQSdwSG0dATR8J9F2S6ISJkm2+oZT3RRIeMQBC7yy2+ueIg==
   dependencies:
     "@faceless-ui/modal" "2.0.2"
     i18next "22.5.1"
     is-hotkey "0.2.0"
     react-i18next "11.18.6"
-    slate "0.118.1"
+    slate "0.91.4"
     slate-history "0.86.0"
     slate-hyperscript "0.81.3"
     slate-react "0.92.0"
@@ -6591,10 +6591,10 @@ ignore@^5.2.0, ignore@^5.3.1:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.2.tgz#3cd40e729f3643fd87cb04e50bf0eb722bc596f5"
   integrity sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==
 
-immer@^10.0.3:
-  version "10.1.3"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-10.1.3.tgz#e38a0b97db59949d31d9b381b04c2e441b1c3747"
-  integrity sha512-tmjF/k8QDKydUlm3mZU+tjM6zeq9/fFpPqH9SzWmBnVVKsPBg/V66qsMwb3/Bo90cgUN+ghdVBess+hPsxUyRw==
+immer@^9.0.6:
+  version "9.0.21"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-9.0.21.tgz#1e025ea31a40f24fb064f1fef23e931496330176"
+  integrity sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==
 
 immutable@^4.0.0:
   version "4.3.7"
@@ -9920,12 +9920,13 @@ slate-react@0.92.0:
     scroll-into-view-if-needed "^2.2.20"
     tiny-invariant "1.0.6"
 
-slate@0.118.1:
-  version "0.118.1"
-  resolved "https://registry.yarnpkg.com/slate/-/slate-0.118.1.tgz#8403a5604994d02b4fb2a9db4435ce034c42d774"
-  integrity sha512-6H1DNgnSwAFhq/pIgf+tLvjNzH912M5XrKKhP9Frmbds2zFXdSJ6L/uFNyVKxQIkPzGWPD0m+wdDfmEuGFH5Tg==
+slate@0.91.4:
+  version "0.91.4"
+  resolved "https://registry.yarnpkg.com/slate/-/slate-0.91.4.tgz#759764d63c8a8a7aff29a29e598e593ed80277f9"
+  integrity sha512-aUJ3rpjrdi5SbJ5G1Qjr3arytfRkEStTmHjBfWq2A2Q8MybacIzkScSvGJjQkdTk3djCK9C9SEOt39sSeZFwTw==
   dependencies:
-    immer "^10.0.3"
+    immer "^9.0.6"
+    is-plain-object "^5.0.0"
     tiny-warning "^1.0.3"
 
 smart-buffer@^4.2.0:
