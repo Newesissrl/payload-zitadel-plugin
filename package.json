@@ -40,7 +40,7 @@
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.24.7",
-    "@mzinga/db-mongodb": "0.0.7",
+    "@mzinga/db-mongodb": "0.0.8",
     "@mzinga/richtext-slate": "0.0.7",
     "@parcel/transformer-typescript-types": "2.16.0",
     "@swc/cli": "^0.7.8",
