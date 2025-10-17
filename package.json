@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3",
-    "mzinga": "0.0.8"
+    "mzinga": "0.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
