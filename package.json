@@ -1,6 +1,6 @@
 {
   "name": "@newesissrl/payload-zitadel-plugin",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/Newesissrl/payload-zitadel-plugin.git",
@@ -27,8 +27,8 @@
     "push:cov": "yarn test && docker run -v $PWD:/code codacy/codacy-coverage-reporter report --coverage-reports /code/coverage/lcov.info"
   },
   "dependencies": {
-    "dotenv": "^17.2.2",
-    "mzinga": "^0.0.6"
+    "dotenv": "^17.2.3",
+    "mzinga": "0.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.26.4",
@@ -40,22 +40,22 @@
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.24.7",
-    "@mzinga/db-mongodb": "0.0.6",
-    "@mzinga/richtext-slate": "0.0.6",
+    "@mzinga/db-mongodb": "0.1.2",
+    "@mzinga/richtext-slate": "0.1.2",
     "@parcel/transformer-typescript-types": "2.16.0",
     "@swc/cli": "^0.7.8",
-    "@swc/core": "^1.7.36",
+    "@swc/core": "^1.13.20",
     "@testing-library/jest-dom": "^6.8.0",
     "@types/express": "5.0.3",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.8.1",
     "@types/passport": "1.0.17",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.17.0",
     "babel-loader": "^10.0.0",
     "cliui": "^9.0.1",
     "css-loader": "^7.1.2",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "file-loader": "^6.2.0",
     "jest": "^30.2.0",
     "jest-fetch-mock": "^3.0.3",
@@ -67,18 +67,17 @@
     "serve": "^14.2.5",
     "string-width": "^8.1.0",
     "swc-loader": "^0.2.6",
-    "ts-jest": "29.4.4",
+    "ts-jest": "29.4.5",
     "ts-loader": "^9.4.2",
     "ts-node": "10.9.2",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "url-loader": "^4.1.1",
-    "webpack": "^5.101.3",
+    "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
   },
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "cookie-parser": "^1.4.6",
-    "mzinga": "0.0.6",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "publishConfig": {
