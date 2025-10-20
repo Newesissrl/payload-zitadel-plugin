@@ -4,10 +4,10 @@ import { Request } from "express";
 import type { Payload } from "mzinga";
 import payload from "mzinga";
 import { buildConfig } from "mzinga/config";
-import { PaginatedDocs } from "mzinga/database";
+import type { PaginatedDocs } from "mzinga/database";
 import { ZitadelStrategy } from "../src/strategies/ZitadelStrategy";
 
-jest.mock("payload");
+jest.mock("mzinga");
 
 describe("ZitadelStrategy", () => {
   let strategy: ZitadelStrategy;
