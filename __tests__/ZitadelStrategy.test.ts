@@ -1,9 +1,10 @@
 import { mongooseAdapter } from "@mzinga/db-mongodb";
 import { slateEditor } from "@mzinga/richtext-slate";
 import { Request } from "express";
-import payload, { Payload } from "mzinga";
+import type { Payload } from "mzinga";
+import payload from "mzinga";
 import { buildConfig } from "mzinga/config";
-import { PaginatedDocs } from "mzinga/database";
+import type { PaginatedDocs } from "mzinga/database";
 import { ZitadelStrategy } from "../src/strategies/ZitadelStrategy";
 
 jest.mock("mzinga");
@@ -96,7 +97,7 @@ describe("ZitadelStrategy", () => {
         },
       } as unknown as Request;
       await strategy.authenticate(req);
-      expect(strategy.success).toBeCalledWith(req.user);
+      expect(strategy.success).toHaveBeenCalledWith(req.user);
     });
     it("non-existing user should create a new one", async () => {
       const req = {
@@ -117,9 +118,9 @@ describe("ZitadelStrategy", () => {
         .spyOn(strategy.ctx, "find")
         .mockResolvedValue({ docs: [] } as unknown as PaginatedDocs<any>);
       await strategy.authenticate(req);
-      expect(spyFind).toBeCalledTimes(2);
-      expect(spyCreate).toBeCalledTimes(1);
-      expect(protoSuccessMock).toBeCalledWith({
+      expect(spyFind).toHaveBeenCalledTimes(2);
+      expect(spyCreate).toHaveBeenCalledTimes(1);
+      expect(protoSuccessMock).toHaveBeenCalledWith({
         id: "non-existing-oidc",
         email: "non-existing@oidc.com",
         password: "9Xp0a7OrLv613l1aR9k4",
@@ -150,15 +151,15 @@ describe("ZitadelStrategy", () => {
         ...oidcUser,
       } as unknown as any);
       await strategy.authenticate(req);
-      expect(spyFind).toBeCalledTimes(1);
-      expect(spyUpdate).toBeCalledWith({
+      expect(spyFind).toHaveBeenCalledTimes(1);
+      expect(spyUpdate).toHaveBeenCalledWith({
         collection: strategy.slug,
         id: foundUser.id,
         data: {
           ...oidcUser,
         },
       });
-      expect(protoSuccessMock).toBeCalledWith({
+      expect(protoSuccessMock).toHaveBeenCalledWith({
         id: "existing-oidc",
         email: "existing@oidc.com",
         full_name: "Test User",

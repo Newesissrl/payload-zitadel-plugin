@@ -1,7 +1,7 @@
 import crypto from "crypto";
 import jwt from "jsonwebtoken";
-import { Payload } from "mzinga";
-import { PaginatedDocs } from "mzinga/database";
+import type { Payload } from "mzinga";
+import type { PaginatedDocs } from "mzinga/database";
 import getExtractJWT from "mzinga/dist/auth/getExtractJWT";
 import type { PayloadRequest } from "mzinga/types";
 import { Strategy } from "passport";
