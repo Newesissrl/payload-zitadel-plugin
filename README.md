@@ -7,6 +7,8 @@ Extends `payloadcms` with [Zitadel](https://www.zitadel.com) integration
 `yarn add @newesissrl/payload-zitadel-plugin`
 `yarn add cookie-parser`
 
+`mzinga` (`^1.0.5`), `react`, `react-i18next` and `cookie-parser` are peer dependencies: the plugin uses the copies installed by the host application, so only one Mzinga instance is loaded.
+
 ## Get Started
 
 
