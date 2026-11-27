@@ -170,7 +170,7 @@ export class ZitadelStrategy extends Strategy {
           payloadToken,
           (req as PayloadRequest).payload.secret,
           {}
-        );
+        ) as jwt.JwtPayload;
         if (tokenData) {
           const collection = await this.ctx.find({
             collection: tokenData.collection as string,
